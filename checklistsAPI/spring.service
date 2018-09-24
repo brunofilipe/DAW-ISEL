@@ -1,0 +1,14 @@
+[Unit]
+Description=Checklists Management API HTTP
+After=syslog.target
+
+[Service]
+User=spring
+Type=idle
+ExecStart=/usr/bin/java -jar /var/spring/api.jar --server.port=8080 --spring.profiles.active=gcp
+Restart=always
+RestartSec=1
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target
